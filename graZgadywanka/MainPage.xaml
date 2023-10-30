@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="graZgadywanka.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+            <Label Text="Zgadywanie liczb"/>
+            <Label x:Name="Guesser" Text="Kto zgaduje"/>
+            <VerticalStackLayout x:Name="MenuStart" IsVisible="true">
+                <HorizontalStackLayout>
+                    <RadioButton Content="Komputer" x:Name="RdbComp"/>
+                    <RadioButton Content="Czlowiek" x:Name="RdbHumn"/>
+                </HorizontalStackLayout>
+
+                <Label x:Name="SldValueLbl" Text="Zakres 0-1000"/>
+                <Slider Minimum="1" Maximum="1000" x:Name="SldRange" Value="250" ValueChanged="OnSldRangeChanged"/>
+                <Button Text="Start" Clicked="GameStartClick"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="GameHumanGuesser" IsVisible="false">
+                <Label Text="Podaj liczbe z zakresu: 0-" x:Name="LblHumanRange"/>
+                <Entry x:Name="EntHumanRange" Placeholder="Podaj liczbe"/>
+                <Button x:Name="BtnHumanConfirm" Text="Zatwierdz" Clicked="OnHumanConfirmClicked"/>
+                <Label Text="" x:Name="LblHumanOutput"/>
+                <Label Text="" x:Name="LblHumanCounter"/>
+                <Button x:Name="BtnHumanRestart" Clicked="HumanRestart" Text="Zacznij od nowa" IsVisible="false"/>
+                
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="GameComputerGuesser" IsVisible="false">
+                <Label Text="" x:Name="LblComputerCounter"/>
+                <Label Text="" x:Name="LblComputerOutput"/>
+                <HorizontalStackLayout>
+                    <RadioButton Content="za mala" x:Name="RdbCompSmall" CheckedChanged="OnCompSelect"/>
+                    <RadioButton Content="zgadles" x:Name="RdbCompEqual" CheckedChanged="OnCompSelect"/>
+                    <RadioButton Content="za duza" x:Name="RdbCompBig" CheckedChanged="OnCompSelect"/>
+                </HorizontalStackLayout>
+                <Button x:Name="BtnCompConfirm" IsVisible="false" Clicked="OnCompConfirm"/>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
