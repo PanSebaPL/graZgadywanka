@@ -16,7 +16,7 @@
                     <RadioButton Content="Czlowiek" x:Name="RdbHumn"/>
                 </HorizontalStackLayout>
 
-                <Label x:Name="SldValueLbl" Text="Zakres 0-1000"/>
+                <Label x:Name="SldValueLbl" Text="Zakres 0-250"/>
                 <Slider Minimum="1" Maximum="1000" x:Name="SldRange" Value="250" ValueChanged="OnSldRangeChanged"/>
                 <Button Text="Start" Clicked="GameStartClick"/>
             </VerticalStackLayout>
@@ -37,7 +37,8 @@
                     <RadioButton Content="zgadles" x:Name="RdbCompEqual" CheckedChanged="OnCompSelect"/>
                     <RadioButton Content="za duza" x:Name="RdbCompBig" CheckedChanged="OnCompSelect"/>
                 </HorizontalStackLayout>
-                <Button x:Name="BtnCompConfirm" IsVisible="false" Clicked="OnCompConfirm"/>
+                <Button x:Name="BtnCompConfirm" Text="Zatwierdz" IsVisible="false" Clicked="OnCompConfirm"/>
+                <Button x:Name="BtnComputerRestart" Clicked="HumanRestart" Text="Zacznij od nowa" IsVisible="false"/>
 
             </VerticalStackLayout>
         </VerticalStackLayout>
