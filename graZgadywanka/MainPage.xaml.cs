@@ -7,6 +7,8 @@
         int ToGuess;
         int CompGuess; int CompPrevGuess;
         int CompGuessAmount = 1;
+        int CompLrg;
+        int CompSml;
         public MainPage()
         {
             InitializeComponent();
@@ -42,6 +44,8 @@
                 LblComputerCounter.Text = "Ilosc krokow: " + CompGuessAmount.ToString();
                 CompGuess = Value / 2;
                 CompPrevGuess = Value;
+                CompLrg = Value;
+                CompSml = 0;
                 MenuStart.IsVisible =false;
                 GameComputerGuesser.IsVisible = true;
                 LblComputerOutput.Text = "Liczba podana przez komputer:" + CompGuess;
@@ -105,8 +109,9 @@
             if (RdbCompBig.IsChecked)
             {
                 //CompGuess = (Value - CompGuess) / 2;
+                CompLrg = CompGuess;
                 CompPrevGuess = CompGuess;
-                CompGuess = CompGuess / 2;
+                CompGuess = (CompLrg + CompSml) / 2;
                 CompGuessAmount++;
                 LblComputerCounter.Text = "Ilosc krokow: " + CompGuessAmount.ToString();
                 RdbCompSmall.IsChecked = false;
@@ -127,7 +132,8 @@
             if (RdbCompSmall.IsChecked)
             {
                 //CompGuess = (Value + CompGuess) / 2;
-                CompGuess = (CompPrevGuess + CompGuess) / 2;
+                CompSml = CompGuess;
+                CompGuess = (CompLrg + CompSml) / 2;
                 CompGuessAmount++;
                 LblComputerCounter.Text = "Ilosc krokow: " + CompGuessAmount.ToString();
                 RdbCompSmall.IsChecked = false;
